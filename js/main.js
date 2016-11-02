@@ -6,88 +6,99 @@ function validateForm(){
 	var contraseña = document.getElementById("input-password").value;
 	var bici = document.querySelector("select").value;
 
-	//acá irá nuestro mensaje
-	var agregarMensajeAca = document.getElementsByClassName("input-box");
-
-	//div que recibirá el span
-	var mensajeError = document.createElement("div");
-
-	//span que recibirá nuestro mensaje
-	var elementoSpan = document.createElement("span");
-
-	//crear nodos
-	var nodoNombre = document.createTextNode("Debe ingresar su nombre");
-	var nodoApellido = document.createTextNode("Debe ingresar su apellido");
-	var nodoEmail = document.createTextNode("Verifique su email");
-	var nodoContraseña = document.createTextNode("La contraseña debe tener al menos 6 caracteres");
-	var nodoBici = document.createTextNode("Debe seleccionar al menos un tipo de bici");
-
-	//meter elementos dentro del div
-	mensajeError.appendChild(elementoSpan);
-	agregarMensajeAca.appendChild(mensajeError);
-
 	//agregar atributos
-	mensajeError.setAttribute("class", ".input-box");
-
-
-	//"Debe ingresar su nombre"
-	//"Debe ingresar su apellido"
-	//"Verifique su email"
-	//"La contraseña debe tener al menos 6 caracteres"
-	//"Debe seleccionar al menos un tipo de bici"
+	.setAttribute("class", ".input-box");
 
 	//VALIDAR NOMBRE
-	if (nombre==null || nombre.length==0) {
-		elementoSpan.appendChild(nodoNombre);
-		agregarMensajeAca;
-		return false;
-	}
-	if (/[0-9]/.test(nombre)) {
-		elementoSpan.appendChild(nodoNombre);
-		agregarMensajeAca;
-		return false;
-	}
-	if (!(/[A-Z]/.test(nombre.charAt(0)))){
-		elementoSpan.appendChild(nodoNombre);
-		agregarMensajeAca;
-		return false;
+	function validarNombre(){
+		if (nombre==null || nombre.length==0) {
+			var divNombre = document.getElementsByClassName('name-container')[0];
+			var spanNombre = document.createElement('span');
+			var nodoNombre = document.createTextNode("Debe ingresar su nombre");
+			spanNombre.appendChild(nodoNombre);
+			divNombre.appendChild(spanNombre);
+			return false;
+		}
+		if (/[0-9]/.test(nombre)) {
+			var divNombre = document.getElementsByClassName('name-container')[0];
+			var spanNombre = document.createElement('span');
+			var nodoNombre = document.createTextNode("Debe ingresar su nombre");
+			spanNombre.appendChild(nodoNombre);
+			divNombre.appendChild(spanNombre);
+			return false;
+		}
+		if (!(/[A-Z]/.test(nombre.charAt(0)))){
+			var divNombre = document.getElementsByClassName('name-container')[0];
+			var spanNombre = document.createElement('span');
+			var nodoNombre = document.createTextNode("Debe ingresar su nombre");
+			spanNombre.appendChild(nodoNombre);
+			divNombre.appendChild(spanNombre);
+			return false;
+		}
 	}
 
 	//VALIDAR APELLIDO
-	if (apellido==null || apellido.length==0) {
-		elementoSpan.appendChild(nodoApellido);
-		agregarMensajeAca;
-		return false;
-	}
-	if (/[0-9]/.test(apellido)) {
-		elementoSpan.appendChild(nodoApellido);
-		agregarMensajeAca;
-		return false;
-	}
-	if (!(/[A-Z]/.test(apellido.charAt(0)))){
-		elementoSpan.appendChild(nodoApellido);
-		agregarMensajeAca;
-		return false;
+	function validarApellido(){
+		if (apellido==null || apellido.length==0) {
+			var divApellido = document.getElementsByClassName('lastname-container')[0];
+			var spanApellido = document.createElement('span');
+			var nodoApellido = document.createTextNode("Debe ingresar su apellido");
+			spanApellido.appendChild(nodoApellido);
+			divApellido.appendChild(spanApellido);
+			return false;
+		}
+		if (/[0-9]/.test(apellido)) {
+			var divApellido = document.getElementsByClassName('lastname-container')[0];
+			var spanApellido = document.createElement('span');
+			var nodoApellido = document.createTextNode("Debe ingresar su apellido");
+			spanApellido.appendChild(nodoApellido);
+			divApellido.appendChild(spanApellido);
+			return false;
+		}
+		if (!(/[A-Z]/.test(apellido.charAt(0)))){
+			var divApellido = document.getElementsByClassName('lastname-container')[0];
+			var spanApellido = document.createElement('span');
+			var nodoApellido = document.createTextNode("Debe ingresar su apellido");
+			spanApellido.appendChild(nodoApellido);
+			divApellido.appendChild(spanApellido);
+			return false;
+		}
 	}
 
 	//VALIDAR EMAIL
-	if (!(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(email))) {
-		elementoSpan.appendChild(nodoEmail);
-		agregarMensajeAca;
-		return false;
+	function validarEmail(){
+		if (!(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(email))) {
+			var divEmail = document.getElementsByClassName('email-container')[0];
+			var spanEmail = document.createElement('span');
+			var nodoEmail = document.createTextNode("Verifique su email");
+			spanEmail.appendChild(nodoEmail);
+			divEmail.appendChild(spanEmail);
+			return false;
+		}
 	}
 
 	//VALIDAR CONTRASEÑA
-	if (contraseña.length<6 || contraseña=="password" || contraseña==123456 || contraseña==098754) {
-		elementoSpan.appendChild(nodoContraseña);
-		agregarMensajeAca;
-		return false;
+	function validarContraseña(){
+		if (contraseña.length<6 || contraseña=="password" || contraseña==123456 || contraseña==098754) {
+			var divContraseña = document.getElementsByClassName('form-group')[0];
+			var spanContraseña = document.createElement('span');
+			var nodoContraseña = document.createTextNode("La contraseña debe tener al menos 6 caracteres");
+			spanContraseña.appendChild(nodoContraseña);
+			divContraseña.appendChild(spanContraseña);
+			return false;
+		}
 	}
 
 	//VALIDAR SELECCIÓN
-	if (bici==0) {
-		elementoSpan.appendChild(nodoBici);
-		agregarMensajeAca;
-		return false;
+	function validarSeleccion(){
+		if (bici==0) {
+			var divSeleccion = document.getElementsByClassName('form-group')[1];
+			var spanSeleccion = document.createElement('span');
+			var nodoSeleccion = document.createTextNode("Debe seleccionar al menos un tipo de bici");
+			spanSeleccion.appendChild(nodoSeleccion);
+			divSeleccion.appendChild(spanSeleccion);
+			return false;
+		}
 	}
 }
+validateForm();
