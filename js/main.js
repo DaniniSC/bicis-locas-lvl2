@@ -3,11 +3,8 @@ function validateForm(){
 	var nombre = document.getElementById("name").value;
 	var apellido = document.getElementById("lastname").value;
 	var email = document.getElementById("input-email").value;
-	var contraseña = document.getElementById("input-password").value;
+	var contrasena = document.getElementById("input-password").value;
 	var bici = document.querySelector("select").value;
-
-	//agregar atributos
-	.setAttribute("class", ".input-box");
 
 	//VALIDAR NOMBRE
 	function validarNombre(){
@@ -77,14 +74,14 @@ function validateForm(){
 		}
 	}
 
-	//VALIDAR CONTRASEÑA
-	function validarContraseña(){
-		if (contraseña.length<6 || contraseña=="password" || contraseña==123456 || contraseña==098754) {
-			var divContraseña = document.getElementsByClassName('form-group')[0];
-			var spanContraseña = document.createElement('span');
-			var nodoContraseña = document.createTextNode("La contraseña debe tener al menos 6 caracteres");
-			spanContraseña.appendChild(nodoContraseña);
-			divContraseña.appendChild(spanContraseña);
+	//VALIDAR CONTRASEnA
+	function validarContrasena(){
+		if (contrasena.length<6 || contrasena=="password" || contrasena=='123456' || contrasena=='098754') {
+			var divContrasena = document.getElementsByClassName('form-group')[0];
+			var spanContrasena = document.createElement('span');
+			var nodoContrasena = document.createTextNode("La contraseña debe tener al menos 6 caracteres");
+			spanContrasena.appendChild(nodoContrasena);
+			divContrasena.appendChild(spanContrasena);
 			return false;
 		}
 	}
@@ -100,5 +97,11 @@ function validateForm(){
 			return false;
 		}
 	}
+
+	validarNombre();
+	validarApellido();
+	validarEmail();
+	validarContrasena();
+	validarSeleccion();
+
 }
-validateForm();
